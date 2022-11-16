@@ -1,5 +1,6 @@
 const db = require("..");
 
+// QUERY DE CRIAÇÃO DE TABELA DESPESAS
 const runMigration = async () => {
   await db.connection.execute(
     `CREATE TABLE IF NOT EXISTS despesas(

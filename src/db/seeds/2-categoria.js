@@ -1,6 +1,7 @@
 const db = require("..");
 
 const runSeed = async () => {
+  // VERIFICA SE A TABELA ESTA VAZIA
   const [hasData] = await db.connection.execute('select id from categorias limit 1;');
   const id = hasData[0]?.id;
   if(id) return;
@@ -16,6 +17,7 @@ const runSeed = async () => {
     }
   ];
 
+  // EXECUTA A QUERY DE INSERÇÃO NA TABELA DE CATEGORIAS
   const inserts = categorias.map(async ({ nome, descricao }) => {
     await db.connection.execute('insert into categorias (nome, descricao) values (?, ?);', [nome, descricao]);
   });
