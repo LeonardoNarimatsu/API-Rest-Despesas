@@ -1,4 +1,4 @@
-const db = require("..");
+const db = require("../db");
 
 class DespesaService {
   async createDespesa(despesa) {
@@ -44,6 +44,7 @@ class DespesaService {
     const lastDayDate = lastDay.toISOString();
 
     // SELECT NA TABELA DESPESAS ORDENADO PELO MÊS ATUAL
+    console.log(db)
     const [querygetdespesas] = await db.connection.execute(
       "select * from despesas where data_compra between ? and ? order by data_compra ;",
       [firstDayDate, lastDayDate]

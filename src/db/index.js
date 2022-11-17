@@ -11,11 +11,11 @@ class DBConnection {
     this.config = config;
   }
   // CONEXÃO COM O BANCO DE DADOS
-  async connect() {
+  async connect() {    
     const connection = await mysql2.createConnection(this.config);
     console.log("Conectou no MySQL");
-    this.connection = connection;
-    return connection;
+    this.connection = connection; 
+    return connection;    
   }
   // EXECUÇÃO DAS MIGRATIONS
   async runMingrations() {
