@@ -43,8 +43,7 @@ class DespesaService {
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     const lastDayDate = lastDay.toISOString();
 
-    // SELECT NA TABELA DESPESAS ORDENADO PELO MÊS ATUAL
-    console.log(db)
+    // SELECT NA TABELA DESPESAS ORDENADO PELO MÊS ATUAL 
     const [querygetdespesas] = await db.connection.execute(
       "select * from despesas where data_compra between ? and ? order by data_compra ;",
       [firstDayDate, lastDayDate]
